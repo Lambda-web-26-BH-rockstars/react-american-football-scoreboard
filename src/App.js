@@ -11,9 +11,9 @@ function App() {
   const [team2, setTeam2] = useState('Tigers')
   const [homeScore, setHomeScore] = useState(0)
   const [awayScore, setAwayScore] = useState(0)
-  
+
   // console.log(team1, renderCounter)
-  
+
   // React.useEffect(() => {
   //   setTeam1('Lions')
   //   setRenderCounter(renderCounter + 1)
@@ -39,6 +39,12 @@ function App() {
     setAwayScore(awayScore + 3)
   }
 
+  let resetClickHandler = () => {
+    console.log("reset clicked")
+    setHomeScore(0)
+    setAwayScore(0)
+  }
+
 
   return (
     <>
@@ -60,15 +66,18 @@ function App() {
         <BottomRow />
       </article>
       <article className="buttons">
-        <Score 
-          Score={homeScoreClickHandler} 
+        <Score
+          Score={homeScoreClickHandler}
           Goal={homeGoalClickHandler}
           side={"Home"}
         />
-         <Score 
-          Score={awayScoreClickHandler} 
+        <Score
+          Score={awayScoreClickHandler}
           Goal={awayGoalClickHandler}
           side={"Away"} />
+        <button onClick={resetClickHandler}>
+          Reset
+        </button>
       </article>
     </>
   );
