@@ -75,7 +75,9 @@ function App() {
           Score={awayScoreClickHandler}
           Goal={awayGoalClickHandler}
           side={"Away"} />
-        <button onClick={resetClickHandler}>
+        <button 
+          onClick={resetClickHandler}
+        >
           Reset
         </button>
       </article>
