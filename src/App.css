@@ -6,13 +6,16 @@
   align-items: center;
 }
 
-.topRow{
+.scoreboard{
   background-color: #003819;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height:100%;
   width: 100%;
+  border-radius: 10px;
+  margin-bottom: 1rem;
 }
 
