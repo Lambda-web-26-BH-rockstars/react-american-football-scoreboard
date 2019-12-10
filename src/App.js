@@ -1,6 +1,9 @@
 //TODO: STEP 1 - Import the useState hook.
-import React, { useState } from "react"
+
 import "./App.css"
+
+import React, { useState } from "react"
+
 import BottomRow from "./BottomRow"
 import Score from './components/Score.js'
 
@@ -11,7 +14,7 @@ function App() {
   const [team2, setTeam2] = useState('Tigers')
   const [homeScore, setHomeScore] = useState(0)
   const [awayScore, setAwayScore] = useState(0)
-
+  const [quarter, setQuarter] = useState(0);
   // console.log(team1, renderCounter)
 
   // React.useEffect(() => {
@@ -46,6 +49,12 @@ function App() {
   }
 
 
+let quarterClickHandler = () => {
+  console.log("reset Clicked")
+  setQuarter(quarter % 6 + 1)
+}
+
+  
   return (
     <>
       <article className="scoreboard">
@@ -63,7 +72,10 @@ function App() {
             <div className="away__score">{awayScore}</div>
           </div>
         </div>
-        <BottomRow />
+        <BottomRow 
+          quarterClickHandler = {quarterClickHandler} 
+          quarter = {quarter}
+        />
       </article>
       <article className="buttons">
         <Score
@@ -80,6 +92,7 @@ function App() {
         >
           Reset
         </button>
+        
       </article>
     </>
   );
