@@ -15,6 +15,7 @@ function App() {
   const [homeScore, setHomeScore] = useState(0)
   const [awayScore, setAwayScore] = useState(0)
   const [quarter, setQuarter] = useState(0);
+  const [ballOn, setBallOn] = useState(20)
   // console.log(team1, renderCounter)
 
   // React.useEffect(() => {
@@ -54,6 +55,18 @@ let quarterClickHandler = () => {
   setQuarter(quarter % 6 + 1)
 }
 
+let ballOnCL1 = () => {
+  console.log('ballOn')
+  setBallOn(ballOn % 99 +1) 
+}
+let ballOnCL_1 = () => {
+  console.log('ballOn')
+  // setBallOn(ballOn -1)
+  if (ballOn>1) {
+    setBallOn(ballOn -1)
+  }
+  
+}
   
   return (
     <>
@@ -75,6 +88,10 @@ let quarterClickHandler = () => {
         <BottomRow 
           quarterClickHandler = {quarterClickHandler} 
           quarter = {quarter}
+
+          ballOn={ballOn}
+          ballOnCL1={ballOnCL1}
+          ballOnCL_1={ballOnCL_1}
         />
       </article>
       <article className="buttons">
